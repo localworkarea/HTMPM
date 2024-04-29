@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"HTM&PM | Кафедра"
+	})
+	<body>
+		<div class="wrapper pg-department">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<div class="head">
+					<div class="head__bg">
+						<img class="ibg" src="@img/heads/kafedra.jpg" width="1100" height="750" alt="Image">
+					</div>
+					<div class="head__container">
+						<div class="head__body">
+							<div class="head__logo">
+								<img class="head__ic ibg ibg--contain" src="@img/icons/logo-ic.svg" width="177" height="154" alt="логотип іконка">
+								<img class="head__logo-txt ibg ibg--contain" src="@img/icons/logo-txt.svg" width="396" height="132" alt="текст логотипу HTM&PM MATERIALS SCIENCE">
+							</div>
+							<div class="head__info">
+								<p>Приєднайся до нас, 
+									і давай разом будувати майбутнє!</p>
+							</div>
+							<div class="head__buttons">
+								<a href="#" data-popup="#popup-req" class="head__link btn btn-h btn--01" aria-label="посилання на відкриття попапу">
+									<span>Подати заявку</span>
+								</a>
+								<a href="#" class="head__link btn btn-h btn--02" aria-label="посилання на сторінку про вступ">
+									<span>Інформація про вступ</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section class="history">
+					<div class="history__container">
+						<h1>Історія кафедри</h1>
+						<div class="history__body">
+							<article class="card-person bg-purple">
+								<div class="card-person__img">
+									<img class="ibg" src="@img/persons/01.jpg" width="340" height="396" alt="Image">
+								</div>
+								<div class="card-person__footer">
+									<p class="card-person__name">
+										Самсонов<br> 
+										Григорій Валентинович 
+									</p>
+									<p class="card-person__position">
+										перший завідувач кафедри, доктор технічних наук, професор
+									</p>
+								</div>
+							</article>
+							<ul class="history__list">
+								<li class="history__item">
+									<p class="history__num">1962</p>
+									<p class="history__txt">заснування кафедри</p>
+								</li>
+								<li class="history__item">
+									<p class="history__num">>45</p>
+									<p class="history__txt">кандидатів технічних наук
+										підготувала кафедра</p>
+								</li>
+								<li class="history__item">
+									<p class="history__num">>10</p>
+									<p class="history__txt">докторів технічних наук
+										підготувала кафедра</p>
+								</li>
+							</ul>
+							<article class="card-person bg-purple">
+								<div class="card-person__img">
+									<img class="ibg" src="@img/persons/02.jpg" width="340" height="396" alt="Image">
+								</div>
+								<div class="card-person__footer">
+									<p class="card-person__name">
+										Лобода<br> Петро Іванович
+									</p>
+									<p class="card-person__position">
+										науковий керівник кафедри, Академік НАНУ, д.т.н., професор
+									</p>
+								</div>
+							</article>
+						</div>
+					</div>
+				</section>
+				<section class="our-teachers bg-purple">
+					<div class="our-teachers__container">
+						<h2>Викладачі</h2>
+						<ul class="teachers__list">
+							<li class="teachers__item">
+								<article class="card-person">
+									<div class="card-person__img">
+										<img class="ibg" src="@img/persons/03.jpg" width="340" height="396" alt="Image">
+									</div>
+									<div class="card-person__footer">
+										<p class="card-person__name">
+											Мініцький<br> Анатолій Вячеславович
+										</p>
+										<p class="card-person__position">
+											д.т.н., доцент, заступник завідувача кафедрою
+										</p>
+									</div>
+								</article>
+							</li>
+							<li class="teachers__item">
+								<article class="card-person">
+									<div class="card-person__img">
+										<img class="ibg" src="@img/persons/04.jpg" width="340" height="396" alt="Image">
+									</div>
+									<div class="card-person__footer">
+										<p class="card-person__name">
+											Богомол<br>
+											Юрій Іванович
+										</p>
+										<p class="card-person__position">
+											д.т.н., професор, завідувач кафедрою
+										</p>
+									</div>
+								</article>
+							</li>
+							<li class="teachers__item">
+								<article class="card-person">
+									<div class="card-person__img">
+										<img class="ibg" src="@img/persons/05.jpg" width="340" height="396" alt="Image">
+									</div>
+									<div class="card-person__footer">
+										<p class="card-person__name">
+											Бірюкович<br>
+											Ліна Олегівна
+										</p>
+										<p class="card-person__position">
+											к.т.н., доцент,
+											вчений секретар кафедри
+										</p>
+									</div>
+								</article>
+							</li>
+						</ul>
+						<a href="department-teachers.html" class="our-teachers__link btn  btn--05" aria-label="посилання на сторінку Викладачі">
+							<span>Показати більше</span>
+						</a>
+					</div>
+				</section>
+				<section class="our-lab">
+					<div class="our-lab__container">
+						<h2>Лабораторії</h2>
+						<div data-gallery class="our-lab__gallery gallery">
+							<a href="@img/lab-gallery/01-full.jpg" class="gallery__image">
+								<img src="@img/lab-gallery/01-thumb.jpg" class="gallery__preview ibg" alt="Опис іллюстрації">
+							</a>
+							<a href="@img/lab-gallery/02-full.jpg" class="gallery__image">
+								<img src="@img/lab-gallery/02-thumb.jpg" class="gallery__preview ibg" alt="Опис іллюстрації">
+							</a>
+							<a href="@img/lab-gallery/03-full.jpg" class="gallery__image">
+								<img src="@img/lab-gallery/03-thumb.jpg" class="gallery__preview ibg" alt="Опис іллюстрації">
+							</a>
+							<a href="@img/lab-gallery/04-full.jpg" class="gallery__image">
+								<img src="@img/lab-gallery/04-thumb.jpg" class="gallery__preview ibg" alt="Опис іллюстрації">
+							</a>
+							<a href="@img/lab-gallery/05-full.jpg" class="gallery__image">
+								<img src="@img/lab-gallery/05-thumb.jpg" class="gallery__preview ibg" alt="Опис іллюстрації">
+							</a>
+						</div>
+						<p>
+							На кафедрі <b>більше 15</b> сучасних лабораторій, де можна <b>комплексно</b> проводити наукові дослідження структури та властивостей матеріалів. <b>Сучасне обладнання</b> дозволяє отримати результати на рівні <b>європейських ВНЗ</b>.
+						</p>
+						<a href="#" class="our-lab__link btn btn-more btn--05" aria-label="посилання на сторінку про вступ">
+							<span>Детальніше</span>
+						</a>
+					</div>
+				</section>
+				<section class="block block-left">
+					<div class="block__img">
+						<img class="ibg" src="@img/blocks/10.jpg" width="950" height="650" alt="Image">
+					</div>
+					<div class="block__body">
+						<h2>
+							Реальні задачі, які вирішують магістри
+						</h2>
+						<p>
+							Щорічно здійснюється понад 15 закордонних відряджень співробітників та студентів кафедри. Кафедру відвідали близько 100 вчених з різних країн: Німеччини, Франції, США, Данії, Норвегії, Туреччини, Індії, Бельгії, Великобританії, Словаччини, Китаю та ін.
+						</p>
+						<p>
+							Беремо активну участь у поданні міжнародних наукових та освітніх проектів.
+						</p>
+						<p><b>
+							Є організаторами  міжнародних конференцій:
+						</b></p>
+						<ul>
+							<li>
+								<a href="#">«HighMatTech»</a>
+							</li>
+							<li>
+								<a href="#">Самсонівська конференція “Матеріалознавство тугоплавких сполук”</a>
+							</li>
+							<li>
+								<a href="#">«Матеріали для роботи в екстремальних умовах»</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="block block-right">
+					<div class="block__body">
+						<h2>
+							Напрями наукової діяльносьті
+						</h2>
+						<ul>
+							<li>
+								Біорозчинні порошкові матеріали для ортопедії та високоефективної реабілітації поранених
+							</li>
+							<li>
+								Створення основ технології конструкційних елементів кумулятивних зарядів підвищеної ефективності
+							</li>
+							<li>
+								Фізичні основи створення каркасних металокерамічних композитів із субмікронним зерном для забезпечення екстремально високих балістичних характеристик
+							</li>
+						</ul>
+						<a href="#" class="block__link btn btn-more btn--05" aria-label="посилання на сторінку про вступ">
+							<span>Детальніше</span>
+						</a>
+					</div>
+					<div class="block__img">
+						<img class="ibg" src="@img/blocks/11.jpg" width="950" height="650" alt="Image">
+					</div>
+				</section>
+				@@include('html/_news-block.htm',{})
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_popup-req.htm',{})
+		@@include('html/_popup-msg.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>

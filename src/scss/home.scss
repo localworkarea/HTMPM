@@ -1,0 +1,295 @@
+.statistics {
+  @extend %sectionPaddingBt;
+  // .statistics__container
+  &__container {
+  }
+  h1 {
+    text-align: center;
+  }
+  // .statistics__list
+  &__list {
+    display: grid;
+    gap: toRem(20);
+    @media (min-width:toEm(650.98)){
+      grid-template-columns: repeat(4,1fr);
+    }
+    @media (max-width: toEm(650.98)){
+        grid-template-columns: repeat(2,1fr);
+    }
+  }
+  // .statistics__item
+  &__item {
+  }
+  // .statistics__img
+  &__img {
+    @include adaptiveValue("border-radius", 60, 40,0,1920,1366.98);
+    background-color:$pupleLight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: toRem(30);
+    @include adaptiveValue("margin-bottom", 20, 10,0,1140.98,480.98);
+    @media (min-width:toEm(650.98)){
+      aspect-ratio:250/200;
+    }
+    @media (max-width: toEm(650.98)){
+        
+    }
+  }
+  // .statistics__ic
+  &__ic {
+    @include adaptiveValue("max-width", 100, 66,0,1140.98,480.98);
+    aspect-ratio: 1/1;
+  }
+  // .statistics__num
+  &__num {
+    display: block;
+    text-align: center;
+    font-family: 'JetBrains Mono';
+    font-weight: 700;
+    @include adaptiveValue("font-size", 50, 36,0,1140.98,480.98);
+    color:$purple;
+  }
+  // .statistics__txt
+  &__txt {
+    text-align: center;
+    font-weight: 700;
+    @include adaptiveValue("font-size", 22, 18,0,1140.98,480.98);
+  }
+}
+
+
+
+.department-about {
+  @extend %sectionPaddingBt;
+  h1 {
+    text-align: center;
+  }
+  // .department-about__container
+  &__container {
+  }
+  // .department-about__body
+  &__body {
+  }
+}
+
+
+
+.history {
+  @extend %sectionPaddingBt;
+  // .history__container
+  &__container {
+    > h1 {
+      text-align: center;
+    }
+  }
+  // .history__body
+  &__body {
+    display: grid;
+    gap: toRem(20);
+    @media (min-width:$mobile){
+      grid-template-columns: repeat(3,1fr);
+    }
+    @media (max-width:$mobile) and (min-width:$mobileSmall) {
+       grid-template-columns: repeat(2,1fr); 
+    }
+  }
+  // .history__list
+  &__list {
+    display: grid;
+    gap: toRem(20);
+    @media (min-width:$mobile){
+      grid-template-rows: repeat(3,1fr);
+    }
+    @media (max-width:$mobile) and (min-width:$mobileSmall) {
+       grid-column: 1/3;
+       grid-row: 2/3; 
+       grid-template-columns: repeat(3,1fr);
+    }
+    @media (max-width: toEm(560.98)){
+      grid-template-columns: 1fr;
+    }
+  }
+  // .history__item
+  &__item {
+    border-radius: toRem(30);
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    justify-content: center;
+    background-color:$pupleLight;
+    padding: toRem(32);
+  }
+  // .history__num
+  &__num {
+    text-align: center;
+    font-family: 'JetBrains Mono';
+    font-weight: 700;
+    color: $purple;
+    @include adaptiveValue("font-size", 50, 30,0,1920.98,480.98);
+    &:not(:last-child) {
+      margin-bottom: toRem(0) !important;
+    }
+  }
+  // .history__txt
+  &__txt {
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.our-teachers {
+  @extend %sectionPaddingTopBt;
+  // .our-teachers__container
+  &__container {
+    > h2 {
+      text-align: center;
+    }
+    .teachers__list {
+      margin-bottom: toRem(20);
+    }
+  }
+	// .our-teachers__link
+	&__link {
+    @media (min-width:$mobileSmall){
+       max-width: toRem(340);
+       margin: 0 auto; 
+    }
+	}
+}
+
+.our-lab {
+  @extend %sectionPaddingTopBt;
+  // .our-lab__container
+  &__container {
+    > h2 {
+      text-align: center;
+    }
+    p {
+      @include adaptiveValue("font-size", 24, 16,0,1920,480.98);
+      @media (min-width:$mobileSmall){
+         padding: 0 toRem(20); 
+         text-align: center;
+      }
+    }
+  }
+  // .our-lab__gallery
+  &__gallery {
+    @include adaptiveValue("margin-bottom", 30, 20,0,1920,1366.98);
+  }
+  // .our-lab__link
+  &__link {
+    @media (min-width:$mobileSmall){
+       margin: 0 auto; 
+    }
+  }
+}
+
+.gallery {
+  display: grid;
+  gap: toRem(2);
+  @media (min-width:$mobileSmall){
+    grid-template-columns: repeat(5,1fr);
+     border-radius: toRem(30);
+     overflow: hidden; 
+  }
+  @media (max-width:$mobileSmall){
+     grid-template-columns: repeat(2,1fr); 
+  }
+  // .gallery__image
+  &__image {
+    position: relative;
+    @media (max-width:$mobileSmall){
+       &:nth-child(5) {
+        grid-column: 1/3;
+        .gallery__preview {
+          border-bottom-left-radius: toRem(30);
+          border-bottom-right-radius: toRem(30);
+          aspect-ratio: 390/388;
+        }
+       } 
+    }
+    @media (any-hover: hover){
+      &:hover{
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background-image:url('../img/icons/search-gl.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: toRem(50);
+      height: toRem(50);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .3s ease;
+      .touch & {
+        opacity: 0.8;
+      }
+    }
+  }
+  // .gallery__preview
+  &__preview {
+  }
+}
+
+
+.news {
+  @extend %sectionPaddingTopBt;
+  // .news__container
+  &__container {
+    > h1 {
+      text-align: center;
+    }
+  }
+  // .news__labels
+  &__labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(10);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: toRem(20);
+    .card-news__lable {
+      position: relative !important;
+      top: unset !important;
+      right: unset !important;
+    }
+  }
+  // .news__search
+  &__search {
+    margin-bottom: toRem(20);
+    form {
+      position: relative;
+      .input {
+        padding-right: toRem(50);
+        min-height: toRem(50) !important;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: toRem(50);
+        height: toRem(50);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: toRem(17);
+          height: toRem(17);
+        }
+      }
+    }
+  }
+  // .news__cards
+  &__cards {
+  }
+}

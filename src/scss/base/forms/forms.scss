@@ -1,0 +1,110 @@
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input {
+	border: toRem(1) solid rgba(162, 49, 255, 0.2);
+	border-radius:  toRem(35);
+	width: 100%;
+	display: block;
+	padding: 0px toRem(30);
+	caret-color: inherit;
+	outline: none;
+	min-height: toRem(70);
+	transition: border-color .3s ease;
+	background-color: #fff;
+	font-size: toRem(16);
+	&._form-focus {
+		border-color: #A431FF;
+	}
+	&._form-error {
+	}
+}
+.input[placeholder]:not([data-placeholder-nohiden]) {
+	&::placeholder {
+		transition: opacity 0.3s;
+		color: rgba(0, 0, 0, 0.4);
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
+
+textarea.input {
+	resize: none;
+	padding: toRem(30);
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #16101C;
+		border-radius: 3px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: #FEFEFE;
+	}
+	
+}
+
+.form {
+	display: grid;
+	row-gap: toRem(10);
+	// .form__item
+	&__item {
+		position: relative;
+		textarea {
+			@include adaptiveValue("min-height", 135,70,0,1920,1366.98 );
+		}
+	}
+}
+
+.form__error {
+	position: absolute;
+	top: toRem(3);
+	right: toRem(30);
+	color: rgb(238, 76, 171);
+	font-size: toRem(14);
+}
+
+
+
+
+// <BUTTONS>
+// Сніппет (HTML): btn
+// @import "button";
+
+// <INPUTS>
+// Сніппет (HTML): inp
+// @import "input";
+
+// <CHECK>
+// Сніппет (HTML): chk
+// @import "checkbox";
+
+// <RADIO>
+// Сніппет (HTML): opt
+// @import "radio";
+
+// <SELECT>
+// Сніппет (HTML): sel
+// @import "select";
+
+// <RATING>
+// Сніппет (HTML): rating
+// @import "rating";
+
+// <QUANTITY>
+// Сніппет (HTML): qa
+// @import "quantity";
+
+// <RANGE>
+// Сніппет (HTML):
+// @import "range";
+
+// <CALENDAR>
+// Сніппет (HTML):
+// @import "datepicker";

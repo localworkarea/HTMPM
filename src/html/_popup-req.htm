@@ -1,0 +1,32 @@
+<div id="popup-req" aria-hidden="true" class="popup popup-req">
+	<div class="popup__wrapper">
+		<div class="popup__content popup-req__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+					<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+				</svg>
+			</button>
+			<div class="popup-req__body">
+				<h2 class="popup-req__title">Подати заявку:</h2>
+				<form class="form" data-dev data-popup-message="#popup-msg" action="" method="POST">
+					<div class="form__item">
+						<input class="input" type="text" name="name" placeholder="ПІБ" data-error="Обов'язкове поле" data-required>
+					</div>
+					<div class="form__item">
+						<input class="input" type="tel" name="phone" placeholder="Телефон" data-error="Обов'язкове поле" data-required>
+					</div>
+					<div class="form__item">
+						<input class="input" type="email" name="email" placeholder="Email" data-error="Обов'язкове поле" data-required="email" data-validate>
+					</div>
+					<div class="form__item">
+						<textarea name="textarea" class="input" placeholder="Повідомлення"></textarea>
+					</div>
+					<button type="submit" class="form__button btn btn--01">
+						<span>Подати заявку</span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
