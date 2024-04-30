@@ -615,6 +615,22 @@
             }
         }
         function formSent(form, responseResult = ``) {
+            if (document.querySelector(".contest__inputs")) {
+                const p1 = parseFloat(form.querySelector("#item-01").value);
+                const p2 = parseFloat(form.querySelector("#item-02").value);
+                const p3 = parseFloat(form.querySelector("#item-03").value);
+                const p4 = parseFloat(form.querySelector("#item-04").value);
+                const ou = parseFloat(form.querySelector("#item-05").value);
+                const k1 = .3;
+                const k2 = .5;
+                const k3 = .2;
+                const k4 = .5;
+                const GK = 1.02;
+                const result = ((k1 * p1 + k2 * p2 + k3 * p3 + k4 * p4) / (k1 + k2 + k3 + k4) + ou) * GK;
+                const roundedResult = Math.round(result);
+                const popupSubtitle = document.querySelector(".popup-contest__subtitle span");
+                popupSubtitle.textContent = roundedResult;
+            }
             document.dispatchEvent(new CustomEvent("formSent", {
                 detail: {
                     form
@@ -2471,8 +2487,23 @@ PERFORMANCE OF THIS SOFTWARE.
             const subMenu = parentItem.querySelector(".sub-menu");
             _slideToggle(subMenu);
         }
-        if (menuItems.length > 0) if (window.innerWidth <= 62.061 * parseFloat(getComputedStyle(document.documentElement).fontSize)) {
-            hideAllSubMenus();
+        function handleWindowResize() {
+            const breakpointWidth = 62.061 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+            const isOpenClass = "_open";
+            if (window.innerWidth <= breakpointWidth) hideAllSubMenus(); else {
+                const openMenuItems = document.querySelectorAll(".menu-item." + isOpenClass);
+                openMenuItems.forEach((item => {
+                    item.classList.remove(isOpenClass);
+                }));
+                const visibleSubMenus = document.querySelectorAll(".sub-menu");
+                visibleSubMenus.forEach((subMenu => {
+                    subMenu.removeAttribute("hidden");
+                }));
+            }
+        }
+        if (menuItems.length > 0) {
+            handleWindowResize();
+            window.addEventListener("resize", handleWindowResize);
             menuItemHasChildren.forEach((parentItem => {
                 parentItem.addEventListener("click", (function(event) {
                     toggleSubMenuVisibility(parentItem);
@@ -2515,6 +2546,38 @@ PERFORMANCE OF THIS SOFTWARE.
                 body.classList.add("video-added");
             }));
         }));
+        function getScreenWidth() {
+            return window.innerWidth;
+        }
+        function convertEmToPx(emWidth) {
+            var emSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+            return emWidth * emSize;
+        }
+        function moveH2OnSmallScreens(screenWidth, breakpointPx) {
+            if (screenWidth <= breakpointPx) blocks.forEach((function(block) {
+                var h2Element = block.querySelector("h2");
+                if (h2Element) block.insertBefore(h2Element, block.firstChild);
+            }));
+        }
+        function returnH2OnLargeScreens(screenWidth, breakpointPx) {
+            if (screenWidth > breakpointPx) blocks.forEach((function(block) {
+                var h2Element = block.querySelector("h2");
+                var blockBody = block.querySelector(".block__body");
+                if (h2Element && blockBody) blockBody.insertAdjacentElement("afterbegin", h2Element);
+            }));
+        }
+        function moveH2Element() {
+            var screenWidth = getScreenWidth();
+            var breakpointEm = 46.936;
+            var breakpointPx = convertEmToPx(breakpointEm);
+            moveH2OnSmallScreens(screenWidth, breakpointPx);
+            returnH2OnLargeScreens(screenWidth, breakpointPx);
+        }
+        var blocks = document.querySelectorAll(".block");
+        if (blocks.length > 0) {
+            window.onload = moveH2Element;
+            window.onresize = moveH2Element;
+        }
     }));
     window["FLS"] = false;
     isWebp();

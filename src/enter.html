@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 	@@include('html/_head.htm',{
 	"title":"HTM&PM | Вступ 1 курс"
 	})
@@ -87,6 +87,64 @@
 						</div>
 					</div>
 				</section>
+				<section class="contest bg-purple">
+					<div class="contest__container">
+						<h2>Калькулятор конкурсного балу</h2>
+						<div class="contest__body">
+							<p><b>
+								Конкурсний бал розраховується за наступною формулою:
+							</b></p>
+							<div class="contest__formula">
+								<p><b>Конкурсний бал =</b></p>
+								<img class="ibg ibg--contain" src="@img/icons/formula.svg" width="475" height="67" alt="Формула конкурсного балу">
+							</div>
+							<p><b>
+								Введи свої дані нижче та ми прорахуємо твій конкурсний бал:
+							</b></p>
+							<form data-dev data-popup-message="#popup-contest" class="contest__inputs">
+								<div class="contest__item">
+									<label for="item-01" class="contest__label">
+										<span>Українська мова</span> (П1)
+									</label>
+									<input id="item-01" type="number" min="100" max="200" name="ukrainian" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+								</div>
+								<div class="contest__item">
+									<label for="item-02" class="contest__label">
+										<span>Математика</span> (П2)
+									</label>
+									<input id="item-02" type="number" min="100" max="200" name="mathematics" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+								</div>
+								<div class="contest__item">
+									<label for="item-03" class="contest__label">
+										<span>Історія України</span> (П3)
+									</label>
+									<input id="item-03" type="number" min="100" max="200" name="history" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+								</div>
+								<div class="contest__item">
+									<label for="item-04" class="contest__label">
+										<span>Фізика або хімія</span> (П4)
+									</label>
+									<input id="item-04" type="number" min="100" max="200" name="physics-chemistry" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+								</div>
+								<div class="contest__item">
+									<label for="item-05" class="contest__label">
+										<span>Підготовчі курси </span> (ОУ)
+									</label>
+									<input id="item-05" type="number" min="100" max="200" name="courses" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+								</div>
+								<button type="submit" class="contest__btn btn btn--01" aria-label="кнопка для розрахунку конкурсного балу">
+									<span>Розрахувати</span>
+								</button>
+							</form>
+							<p class="contest__txt">
+								Матеріалознавство відноситься до спеціальностей, яким надається особлива підтримка державою.
+							</p>
+							<p class="contest__txt">
+								Тому при зарахуванні на <b>132 Спеціальність</b>, для здобуття ступеня бакалавра, застосовується галузевий коефіцієнт <b>(ГК=1.02)</b> до конкурсного бала, який діє лише для заяв з пріоритетом <b>1 та 2</b>.
+							</p>
+						</div>
+					</div>
+				</section>
 				<section class="block-dark block-right">
 					<div class="block-dark__body">
 						<div class="block-dark__wrapper">
@@ -168,6 +226,7 @@
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
+		@@include('html/_popup-contest.htm',{})
 		@@include('html/_popup-req.htm',{})
 		@@include('html/_popup-msg.htm',{})
 		@@include('html/_js.htm',{})

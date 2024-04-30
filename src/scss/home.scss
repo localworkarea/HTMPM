@@ -291,5 +291,191 @@
   }
   // .news__cards
   &__cards {
+    margin-bottom: toRem(20);
+  }
+  // .news__pagination
+  &__pagination {
+  }
+}
+
+.contest {
+  @extend %sectionPaddingTopBt;
+  // .contest__container
+  &__container {
+    > h2 {
+      text-align: center;
+    }
+  }
+  // .contest__body
+  &__body {
+    max-width: toRem(800);
+    margin: 0 auto;
+  }
+  // .contest__formula
+  &__formula {
+    background-color: $black;
+    border-radius: toRem(30);
+    padding: toRem(20);
+    display: grid;
+    align-items: center;
+    gap: toRem(10);
+    margin-bottom: toRem(20);
+    @media (min-width:$mobileSmall){
+      grid-template-columns: auto auto;
+    }
+    p {
+      color: $purple;
+      margin-bottom: unset !important;
+    }
+  }
+  // .contest__inputs
+  &__inputs {
+    display: grid;
+    row-gap: toRem(10);
+    margin-bottom: toRem(20);
+    @media (min-width:$mobileSmall){
+      grid-template-columns: repeat(2,1fr);
+      column-gap: toRem(60);
+    }
+  }
+  // .contest__item
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .form__error {
+      top: toRem(0) !important;
+      right: toRem(5) !important;
+      pointer-events: none;
+    }
+  }
+  // .contest__label
+  &__label {
+    font-weight: 700;
+    font-size: toRem(18);
+    span {
+      color: $purple;
+    }
+  }
+  // .contest__input
+  &__input {
+    width: toRem(70);
+    min-height: toRem(54) !important;
+    border-radius: toRem(16) !important;
+    padding: 0 toRem(10) !important;
+    text-align: center;
+  }
+  // .contest__btn
+  &__btn {
+    @media (min-width:$mobileSmall){
+      min-height: toRem(54) !important;
+    }
+  }
+  // .contest__txt
+  &__txt {
+    opacity: 0.4;
+    @media (min-width:$mobileSmall){
+       font-size: toRem(16) !important; 
+    }
+    @media (max-width:$mobileSmall){
+       font-size: toRem(14) !important; 
+    }
+  }
+}
+
+.unfound {
+  @extend %sectionPaddingTopBt;
+  // .unfound__container
+  &__container {
+    > h1 {
+      text-align: center;
+      @include adaptiveValue("font-size", 60, 24,0,1920,480.98);
+    }
+  }
+  // .unfound__txt
+  &__txt {
+    text-align: center;
+    @include adaptiveValue("font-size", 36, 16,0,1920,480.98);
+  }
+  // .unfound__body
+  &__body {
+    text-align: center;
+    font-family: 'JetBrains Mono';
+    font-weight: 400;
+    line-height: 1.12;
+    border-radius: toRem(26);
+    border: toRem(2) solid $purple;
+    color: $purple;
+    @include adaptiveValue("font-size", 300, 200,2,1920.98,1366.98);
+    @include adaptiveValue("font-size", 200, 150,3,1366.98,480.98);
+    @include adaptiveValue("max-width", 1060, 700,0,1920,1366.98 );
+    margin-inline: auto;
+    margin-bottom: toRem(20);
+  }
+  // .unfound__link
+  &__link {
+    @media (min-width:$mobileSmall){
+       margin-inline: auto;
+       max-width: toRem(340); 
+    }
+  }
+}
+
+.contacts {
+  @extend %sectionPaddingTopBt;
+  // .contacts__container
+  &__container {
+    display: grid;
+    @include adaptiveValue("gap", 100, 30,0,1920,480.98);
+    @media (min-width:toEm(750.98)){
+      grid-template-columns: auto 1fr;
+    }
+  }
+	// .contacts__body
+	&__body {
+    h1 {
+      @include adaptiveValue("font-size",50,40,0,1920,1366.98 );
+    }
+	}
+  // .contacts__items
+  &__items {
+    font-style: normal;
+    @media (max-width: toEm(750.98)) and (min-width:toEm(540.98)) {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: toRem(40);
+        width: fit-content;
+        margin-inline: auto;
+    }
+  }
+  // .contacts__item
+  &__item {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 20);
+    }
+    p {
+      font-size: toRem(24);
+      color: $purple;
+      margin-bottom: toRem(10);
+      font-weight: 700;
+    }
+    a {
+      font-size: toRem(24);
+    }
+  }
+  // .contacts__map
+  &__map {
+    border: toRem(1) solid rgba(162, 49, 255, 0.2);
+    border-radius: toRem(30);
+    overflow: hidden;
+    iframe {
+      @media (max-width: toEm(750.98)){
+          aspect-ratio: 16/9;
+      }
+      @media (max-width:$mobileSmall){
+        aspect-ratio: 16/11;
+      }
+    }
   }
 }

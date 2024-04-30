@@ -206,6 +206,30 @@ export function formSubmit() {
 	}
 	// Дії після надсилання форми
 	function formSent(form, responseResult = ``) {
+		// подсчет формулы конкурсного бала (страница Вступ 1 курс) ================
+		if (document.querySelector('.contest__inputs')) {
+				const p1 = parseFloat(form.querySelector("#item-01").value);
+				const p2 = parseFloat(form.querySelector("#item-02").value);
+				const p3 = parseFloat(form.querySelector("#item-03").value);
+				const p4 = parseFloat(form.querySelector("#item-04").value);
+				const ou = parseFloat(form.querySelector("#item-05").value);
+
+				const k1 = 0.3;
+				const k2 = 0.5;
+				const k3 = 0.2;
+				const k4 = 0.5;
+				const GK = 1.02;
+
+				const result = (((k1 * p1 + k2 * p2 + k3 * p3 + k4 * p4) / (k1 + k2 + k3 + k4)) + ou) * GK;
+
+				const roundedResult = Math.round(result);
+
+				const popupSubtitle = document.querySelector(".popup-contest__subtitle span");
+				popupSubtitle.textContent = roundedResult; 
+		}
+		// =========================================================================
+
+		
 		// Створюємо подію відправлення форми
 		document.dispatchEvent(new CustomEvent("formSent", {
 			detail: {
@@ -224,6 +248,7 @@ export function formSubmit() {
 		formValidate.formClean(form);
 		// Повідомляємо до консолі
 		formLogging(`Форму відправлено!`);
+
 	}
 	function formLogging(message) {
 		FLS(`[Форми]: ${message}`);

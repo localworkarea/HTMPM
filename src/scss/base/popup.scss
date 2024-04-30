@@ -92,14 +92,11 @@ body::after {
 .popup-msg {
 	// .popup-msg__content
 	&__content {
-		max-width: toRem(700);
-		@include adaptiveValue("padding", 70, 20,0,1920,480.98);
+
 	}
 	// .popup-msg__body
 	&__body {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+
 	}
 	// .popup-msg__title
 	&__title {
@@ -116,9 +113,59 @@ body::after {
 	}
 }
 
+.popup-contest {
+	// .popup-contest__content
+	&__content {
+		p {
+			text-align: center;
+		}
+	}
+	// .popup-contest__body
+	&__body {
+
+	}
+	// .popup-contest__title
+	&__title {
+	}
+	// .popup-contest__subtitle
+	&__subtitle {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 36, 24,0,1920,480.98);
+		span {
+			color: $purple;
+		}
+	}
+	// .popup-contest__txt
+	&__txt {
+	}
+	// .popup-contest__other
+	&__other {
+	}
+}
+
+.popup-contest__txt,
+.popup-contest__other {
+	@include adaptiveValue("font-size", 26, 18,0,1920,480.98);
+}
+
+
+.popup-msg__content,
+.popup-contest__content {
+	max-width: toRem(700);
+	@include adaptiveValue("padding", 70, 20,0,1920,480.98);
+}
+
+.popup-msg__body,
+.popup-contest__body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 
 .popup-req__title,
-.popup-msg__title {
+.popup-msg__title,
+.popup-contest__title {
 	font-family: 'JetBrains Mono';
 	font-weight: 700;
 	@include adaptiveValue("font-size", 50, 30,0,1920.98,480.98);

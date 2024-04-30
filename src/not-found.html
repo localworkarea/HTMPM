@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"HTM&PM | 404"
+	})
+	<body>
+		<div class="wrapper pg-unfound">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section class="unfound bg-purple">
+					<div class="unfound__container">
+						<h1>Упс, щось пішло не так</h1>
+						<p class="unfound__txt">Нажаль, такої сторінки не існує</p>
+						<div class="unfound__body">
+							404
+						</div>
+						<a href="index.html" class="unfound__link btn btn-h btn--01" aria-label="посилання на головну">
+							<span>Повернутись на головну</span>
+						</a>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

@@ -55,37 +55,58 @@ document.addEventListener('DOMContentLoaded', function() {
       subMenu.setAttribute('hidden', true);
     });
   }
-  
+
   // Функция для отображения подменю конкретного родительского элемента
   function toggleSubMenuVisibility(parentItem) {
     const subMenu = parentItem.querySelector('.sub-menu');
     _slideToggle(subMenu);
   }
 
-  if (menuItems.length > 0) {
-    if (window.innerWidth <= 62.061 * parseFloat(getComputedStyle(document.documentElement).fontSize)) {
-      // Скрываем все подменю изначально
+  function handleWindowResize() {
+    const breakpointWidth = 62.061 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const isOpenClass = '_open';
+
+    if (window.innerWidth <= breakpointWidth) {
       hideAllSubMenus();
-      
-      // Обработчик клика для верхних родительских элементов
-      menuItemHasChildren.forEach(parentItem => {
-        parentItem.addEventListener('click', function(event) {
-          toggleSubMenuVisibility(parentItem);
-          parentItem.classList.toggle('_open');
-          // Останавливаем дальнейшее всплытие события
-          event.stopPropagation();
-        });
+    } else {
+      const openMenuItems = document.querySelectorAll('.menu-item.' + isOpenClass);
+      openMenuItems.forEach(item => {
+        item.classList.remove(isOpenClass);
       });
-    
-      // Обработчик клика для вложенных элементов, который удаляет обработчик клика для родительского элемента
-      const nestedMenuItemHasChildren = document.querySelectorAll('.menu-item.menu-item-has-children .menu-item.menu-item-has-children');
-      nestedMenuItemHasChildren.forEach(nestedItem => {
-        nestedItem.addEventListener('click', function(event) {
-          event.stopPropagation();
-        });
+
+      const visibleSubMenus = document.querySelectorAll('.sub-menu');
+      visibleSubMenus.forEach(subMenu => {
+        subMenu.removeAttribute('hidden');
       });
     }
   }
+
+
+  if (menuItems.length > 0) {
+    handleWindowResize(); // Вызываем функцию сразу после загрузки страницы
+
+    // Добавляем обработчик события изменения размера окна
+    window.addEventListener('resize', handleWindowResize);
+
+    // Обработчик клика для верхних родительских элементов
+    menuItemHasChildren.forEach(parentItem => {
+      parentItem.addEventListener('click', function(event) {
+        toggleSubMenuVisibility(parentItem);
+        parentItem.classList.toggle('_open');
+        // Останавливаем дальнейшее всплытие события
+        event.stopPropagation();
+      });
+    });
+
+    // Обработчик клика для вложенных элементов, который удаляет обработчик клика для родительского элемента
+    const nestedMenuItemHasChildren = document.querySelectorAll('.menu-item.menu-item-has-children .menu-item.menu-item-has-children');
+    nestedMenuItemHasChildren.forEach(nestedItem => {
+      nestedItem.addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+    });
+  }
+
   // ======================================================================================
 
 
@@ -129,5 +150,63 @@ document.addEventListener('DOMContentLoaded', function() {
           });
       });
       // =====================================================================================
+
+
+
+    // РАБОТА С ПЕРЕМЕЩЕНИЕМ H2 ЗАГОЛОВКА В БЛОКАХ .block ============================
+    // Функция для получения ширины экрана в пикселях
+    function getScreenWidth() {
+      return window.innerWidth;
+    }
+
+    // Функция для вычисления ширины в пикселях на основе ширины в em
+    function convertEmToPx(emWidth) {
+      var emSize = parseFloat(getComputedStyle(document.documentElement).fontSize); // Получаем размер шрифта в пикселях
+      return emWidth * emSize; // Конвертация ширины в пиксели
+    }
+
+    // Функция для перемещения заголовка h2 на меньших экранах
+    function moveH2OnSmallScreens(screenWidth, breakpointPx) {
+      if (screenWidth <= breakpointPx) {
+          blocks.forEach(function(block) {
+              var h2Element = block.querySelector('h2');
+              if (h2Element) {
+                  block.insertBefore(h2Element, block.firstChild);
+              }
+          });
+      }
+    }
+
+    // Функция для возвращения заголовка h2 на больших экранах
+    function returnH2OnLargeScreens(screenWidth, breakpointPx) {
+      if (screenWidth > breakpointPx) {
+          blocks.forEach(function(block) {
+              var h2Element = block.querySelector('h2');
+              var blockBody = block.querySelector('.block__body');
+              if (h2Element && blockBody) {
+                  blockBody.insertAdjacentElement('afterbegin', h2Element);
+              }
+          });
+      }
+    }
+
+    function moveH2Element() {
+      var screenWidth = getScreenWidth();
+      var breakpointEm = 46.936; // Ширина в em
+      var breakpointPx = convertEmToPx(breakpointEm);
+    
+      moveH2OnSmallScreens(screenWidth, breakpointPx);
+      returnH2OnLargeScreens(screenWidth, breakpointPx);
+    }
+
+    var blocks = document.querySelectorAll('.block');
+    if (blocks.length > 0) {
+      window.onload = moveH2Element;
+      window.onresize = moveH2Element;
+    }
+    // ============================================================================
+
+
+
 
 });

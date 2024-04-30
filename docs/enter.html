@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 
 <head>
 	<title>HTM&PM | Вступ 1 курс</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240430002709">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240430172309">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,6 +150,64 @@
 					</div>
 				</div>
 			</section>
+			<section class="contest bg-purple">
+				<div class="contest__container">
+					<h2>Калькулятор конкурсного балу</h2>
+					<div class="contest__body">
+						<p><b>
+								Конкурсний бал розраховується за наступною формулою:
+							</b></p>
+						<div class="contest__formula">
+							<p><b>Конкурсний бал =</b></p>
+							<img class="ibg ibg--contain" src="img/icons/formula.svg" width="475" height="67" alt="Формула конкурсного балу">
+						</div>
+						<p><b>
+								Введи свої дані нижче та ми прорахуємо твій конкурсний бал:
+							</b></p>
+						<form data-dev data-popup-message="#popup-contest" class="contest__inputs">
+							<div class="contest__item">
+								<label for="item-01" class="contest__label">
+									<span>Українська мова</span> (П1)
+								</label>
+								<input id="item-01" type="number" min="100" max="200" name="ukrainian" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+							</div>
+							<div class="contest__item">
+								<label for="item-02" class="contest__label">
+									<span>Математика</span> (П2)
+								</label>
+								<input id="item-02" type="number" min="100" max="200" name="mathematics" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+							</div>
+							<div class="contest__item">
+								<label for="item-03" class="contest__label">
+									<span>Історія України</span> (П3)
+								</label>
+								<input id="item-03" type="number" min="100" max="200" name="history" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+							</div>
+							<div class="contest__item">
+								<label for="item-04" class="contest__label">
+									<span>Фізика або хімія</span> (П4)
+								</label>
+								<input id="item-04" type="number" min="100" max="200" name="physics-chemistry" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+							</div>
+							<div class="contest__item">
+								<label for="item-05" class="contest__label">
+									<span>Підготовчі курси </span> (ОУ)
+								</label>
+								<input id="item-05" type="number" min="100" max="200" name="courses" class="contest__input input" autocomplete="off" data-error="Обов'язкове поле" data-required>
+							</div>
+							<button type="submit" class="contest__btn btn btn--01" aria-label="кнопка для розрахунку конкурсного балу">
+								<span>Розрахувати</span>
+							</button>
+						</form>
+						<p class="contest__txt">
+							Матеріалознавство відноситься до спеціальностей, яким надається особлива підтримка державою.
+						</p>
+						<p class="contest__txt">
+							Тому при зарахуванні на <b>132 Спеціальність</b>, для здобуття ступеня бакалавра, застосовується галузевий коефіцієнт <b>(ГК=1.02)</b> до конкурсного бала, який діє лише для заяв з пріоритетом <b>1 та 2</b>.
+						</p>
+					</div>
+				</div>
+			</section>
 			<section class="block-dark block-right">
 				<div class="block-dark__body">
 					<div class="block-dark__wrapper">
@@ -237,7 +295,7 @@
 									<a href="#" class="card-news__lable lb-01" aria-label="посилання на категорію">Навчання</a>
 									<img class="card-news__img ibg" src="img/news/01.webp" width="340" height="200" alt="Image">
 								</div>
-								<a href="#" class="card-news__link" aria-label="посилання на статтю">
+								<a href="news-one.html" class="card-news__link" aria-label="посилання на статтю">
 									<h3 class="card-news__title">IX Міжнародна Самсонівська конференція</h3>
 									<p class="card-news__txt">Шановні колеги!
 										Запрошуємо вас взяти участь у IX Міжнародній Самсонівській конференції «Матеріалознавство тугоплавких сполук» (MSRC-2024), яка відбудеться 27-30 травня 2024 р. в м.Київ, Україна.
@@ -259,7 +317,7 @@
 									<a href="#" class="card-news__lable lb-02" aria-label="посилання на категорію">Наука</a>
 									<img class="card-news__img ibg" src="img/news/02.webp" width="340" height="200" alt="Image">
 								</div>
-								<a href="#" class="card-news__link" aria-label="посилання на статтю">
+								<a href="news-one.html" class="card-news__link" aria-label="посилання на статтю">
 									<h3 class="card-news__title">IX Міжнародна Самсонівська конференція</h3>
 									<p class="card-news__txt">Шановні колеги!
 										Запрошуємо вас взяти участь у
@@ -281,7 +339,7 @@
 									<a href="#" class="card-news__lable lb-03" aria-label="посилання на категорію">Анонс</a>
 									<img class="card-news__img ibg" src="img/news/03.webp" width="340" height="200" alt="Image">
 								</div>
-								<a href="#" class="card-news__link" aria-label="посилання на статтю">
+								<a href="news-one.html" class="card-news__link" aria-label="посилання на статтю">
 									<h3 class="card-news__title">IX Міжнародна Самсонівська конференція</h3>
 									<p class="card-news__txt">Шановні колеги!
 										Запрошуємо вас взяти участь у IX Міжнародній Самсонівській конференції «Матеріалознавство тугоплавких сполук» (MSRC-2024), яка відбудеться 27-30 травня 2024 р. в м.Київ, Україна.
@@ -409,6 +467,36 @@
 			</div>
 		</footer>
 	</div>
+	<div id="popup-contest" aria-hidden="true" class="popup popup-contest">
+		<div class="popup__wrapper">
+			<div class="popup__content popup-contest__content">
+				<button data-close type="button" class="popup__close">
+					<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+						<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+					</svg>
+				</button>
+				<div class="popup-contest__body">
+					<p class="popup-contest__title">
+						Вітаємо!
+					</p>
+					<p class="popup-contest__subtitle">
+						Ти набрав <span>XXX</span> балів
+					</p>
+					<p class="popup-contest__txt">
+						Залишай заявку на сайті або дзвони за номером 09Х-ХХХ-ХХ-ХХ
+					</p>
+					<p class="popup-contest__other">
+						Ти поступиш на бюджет!
+					</p>
+					<svg class="popup-msg__ic" width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="39" cy="39" r="39" fill="#ACFF7A" />
+						<path d="M28 38L36 47L50 31" stroke="black" stroke-width="4" stroke-linecap="round" />
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div id="popup-req" aria-hidden="true" class="popup popup-req">
 		<div class="popup__wrapper">
 			<div class="popup__content popup-req__content">
@@ -465,7 +553,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240430002709"></script>
+	<script src="js/app.min.js?_v=20240430172309"></script>
 </body>
 
 </html>
